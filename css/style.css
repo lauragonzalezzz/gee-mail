@@ -4,6 +4,17 @@
 	background: #7986cb;
 	color: red;
 }
-#messageList {
+.messageList {
     border: 1px solid black;
+    margin: 2px;
 }
+
+.body {
+	display: none;
+}
+
+.body.show {
+	display: block;
+	background: red;
+}
+

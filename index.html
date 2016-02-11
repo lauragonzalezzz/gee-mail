@@ -12,49 +12,52 @@
       				var subject = messages[i].subject;
       				var date = messages[i].date;
       				var body = messages[i].body;
-      			}
+      			
 
       		var messageListElement = document.createElement('div');
-      		createElement.className = 'messageList';
+      		messageListElement.className = 'messageList';
       		document.getElementById('main').appendChild(messageListElement);
 
       		var senderElement = document.createElement('div');
-      		senderElement.id = "sender";
+      		senderElement.class = "sender";
       		senderElement.innerHTML = sender;
       		messageListElement.appendChild(senderElement);
 
       		var subjectElement = document.createElement('div');
-      		subjectElement.id = "subject";
+      		subjectElement.class = "subject";
       		subjectElement.innerHTML = subject;
       		messageListElement.appendChild(subjectElement);
 
       		var dateElement = document.createElement('div');
-      		dateElement.id = "date";
+      		dateElement.class = "date";
       		dateElement.innerHTML = date;
       		messageListElement.appendChild(dateElement);
 
       		var bodyElement = document.createElement('div');
-      		bodyElement.id="body";
+      		bodyElement.class = "body";
       		bodyElement.innerHTML = body;
       		messageListElement.appendChild(bodyElement);
 
       	//Show and hide the message body
 
-			var emailElement = document.getElementsByClassName('messageList');
-			for (var j = 0; j < messageListElements.length; j++) {
-				messageListElements[j].addEventListener('click', showMessage);
+			var messageListElement = document.getElementsByClassName('messageList');
+			for (var j = 0; j < messageListElement.length; j++) {
+				messageListElement[j].addEventListener('click', showMessage);
 			}
 
-			function showMessage(event) {
-				var showBody = this.querySelectorAll('.body')[0];
-				if (showBody.classList.contains('show')=== false) {
+			function showMessage() {
+				var bodyAppear = document.querySelectorAll('.body');
+				bodyAppear.classList.toggle('show');
+/*
+				if (showBody.classList.contains('show') === false) {
 					showBody.classList.add('show');
 				} else {
 					showBody.classList.remove('show');
-				}
-			}
+				} */
+			} 
 
           }
+        } 
 
         generateEmail(geemails);
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
@@ -64,16 +67,10 @@
     </script>
 	</head>
 	<body>
-		<header class="jumbotron">
-			<div class="container">
-				<div class="row row-header">
-					<div class="col-xs-12 col-sm-8">
-						<h1>Geemail</h1>
-					</div>
-				</div>
-			</div>
-		</header>
-		<div class="container" id="main">
-		</div>
+	<header>
+		<h1>Geemail</h1>
+	</header>
+	<div class="container" id="main">
+	</div>
 	</body>
 </html>
