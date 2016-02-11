@@ -2,8 +2,61 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+
     <script>
       window.onload = function(){
+         
+      		function generateEmail(messages) {
+      			for (var i = 0; i < messages.length; i++)  {
+      				var sender = messages[i].sender;
+      				var subject = messages[i].subject;
+      				var date = messages[i].date;
+      				var body = messages[i].body;
+      			}
+
+      		var messageListElement = document.createElement('div');
+      		createElement.className = 'messageList';
+      		document.getElementById('main').appendChild(messageListElement);
+
+      		var senderElement = document.createElement('div');
+      		senderElement.id = "sender";
+      		senderElement.innerHTML = sender;
+      		messageListElement.appendChild(senderElement);
+
+      		var subjectElement = document.createElement('div');
+      		subjectElement.id = "subject";
+      		subjectElement.innerHTML = subject;
+      		messageListElement.appendChild(subjectElement);
+
+      		var dateElement = document.createElement('div');
+      		dateElement.id = "date";
+      		dateElement.innerHTML = date;
+      		messageListElement.appendChild(dateElement);
+
+      		var bodyElement = document.createElement('div');
+      		bodyElement.id="body";
+      		bodyElement.innerHTML = body;
+      		messageListElement.appendChild(bodyElement);
+
+      	//Show and hide the message body
+
+			var emailElement = document.getElementsByClassName('messageList');
+			for (var j = 0; j < messageListElements.length; j++) {
+				messageListElements[j].addEventListener('click', showMessage);
+			}
+
+			function showMessage(event) {
+				var showBody = this.querySelectorAll('.body')[0];
+				if (showBody.classList.contains('show')=== false) {
+					showBody.classList.add('show');
+				} else {
+					showBody.classList.remove('show');
+				}
+			}
+
+          }
+
+        generateEmail(geemails);
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
@@ -11,8 +64,16 @@
     </script>
 	</head>
 	<body>
+		<header class="jumbotron">
+			<div class="container">
+				<div class="row row-header">
+					<div class="col-xs-12 col-sm-8">
+						<h1>Geemail</h1>
+					</div>
+				</div>
+			</div>
+		</header>
 		<div class="container" id="main">
-			Build Me!
 		</div>
 	</body>
 </html>
