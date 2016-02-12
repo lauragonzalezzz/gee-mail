@@ -28,6 +28,11 @@
       		subjectElement.innerHTML = subject;
       		messageListElement.appendChild(subjectElement);
 
+      		var buttonElement = document.createElement('button');
+      		buttonElement.class = "buttonElement";
+      		buttonElement.innerHTML = "Full Message";
+      		subjectElement.appendChild(buttonElement);
+
       		var dateElement = document.createElement('div');
       		dateElement.class = "date";
       		dateElement.innerHTML = date;
@@ -40,29 +45,50 @@
 
       	//Show and hide the message body
 
-			var messageListElement = document.getElementsByClassName('messageList');
+			/*var messageListElement = document.getElementsByClassName('messageList');
 			for (var j = 0; j < messageListElement.length; j++) {
 				messageListElement[j].addEventListener('click', showMessage);
 			}
 
 			function showMessage() {
-				var bodyAppear = document.querySelectorAll('.body');
-				bodyAppear.classList.toggle('show');
-/*
-				if (showBody.classList.contains('show') === false) {
-					showBody.classList.add('show');
-				} else {
-					showBody.classList.remove('show');
-				} */
-			} 
+				var bodyShow = document.querySelectorAll('.body');
+				bodyShow.classList.toggle('show');
+
+			}*/
+
+			var buttonFn = document.getElementsByClassName('buttonElement');
+			for (var k = 0; k < buttonFn.length; k++) {
+				buttonFn[k].addEventListener('click', showMessage);
+			}
+
+			function showMessage() {
+				document.getElementsByClassName('body').classList.toggle('show');
+
+			}
 
           }
         } 
 
         generateEmail(geemails);
+        
+        
+        function messageCount() {
+
+        var messagesTotalElement = document.createElement('p');
+        messagesTotalElement.innerHTML = geemails.length + " Messages";
+        document.getElementById('headline').appendChild(messagesTotalElement);
+    	}
+        
+        messageCount(); 
+
+
+        var newMessage = setInterval(getNewMessage, 3000);
+
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
+
+
       };
     </script>
 	</head>
@@ -70,6 +96,8 @@
 	<header>
 		<h1>Geemail</h1>
 	</header>
+	<div class="container" id="headline">
+	</div>
 	<div class="container" id="main">
 	</div>
 	</body>
