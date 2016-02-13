@@ -24,47 +24,57 @@
       		messageListElement.appendChild(senderElement);
 
       		var subjectElement = document.createElement('div');
-      		subjectElement.class = "subject";
+      		subjectElement.className = "subject";
       		subjectElement.innerHTML = subject;
       		messageListElement.appendChild(subjectElement);
 
       		var buttonElement = document.createElement('button');
-      		buttonElement.class = "buttonElement";
+      		buttonElement.className = "buttonElement";
       		buttonElement.innerHTML = "Full Message";
+          buttonElement.addEventListener("click", showMessage);
       		subjectElement.appendChild(buttonElement);
 
       		var dateElement = document.createElement('div');
-      		dateElement.class = "date";
+      		dateElement.className = "date";
       		dateElement.innerHTML = date;
       		messageListElement.appendChild(dateElement);
 
       		var bodyElement = document.createElement('div');
-      		bodyElement.class = "body";
+      		bodyElement.className = "body";
       		bodyElement.innerHTML = body;
       		messageListElement.appendChild(bodyElement);
 
       	//Show and hide the message body
 
-			/*var messageListElement = document.getElementsByClassName('messageList');
+			var messageListElement = document.getElementsByClassName('messageList');
 			for (var j = 0; j < messageListElement.length; j++) {
 				messageListElement[j].addEventListener('click', showMessage);
 			}
 
 			function showMessage() {
-				var bodyShow = document.querySelectorAll('.body');
-				bodyShow.classList.toggle('show');
-
-			}*/
-
-			var buttonFn = document.getElementsByClassName('buttonElement');
-			for (var k = 0; k < buttonFn.length; k++) {
-				buttonFn[k].addEventListener('click', showMessage);
+        var bodyShow = document.querySelectorAll('.body');
+        
+        for (i = 0; i < bodyShow.length; i++) {
+				
+				bodyShow[i].classList.toggle('show');
+        }
 			}
 
-			function showMessage() {
-				document.getElementsByClassName('body').classList.toggle('show');
+			/*var buttonCode = document.getElementsByClassName('buttonElement');
+			for (var k = 0; k < buttonCode.length; k++) {
+				buttonCode[k].addEventListener('click', showMessage);
+			} */
 
-			}
+      /* function createButton(code) {
+    var button = document.createElement("button");
+    button.innerHTML = "Full Message";
+    button.addEventListener("click", showMessage);
+    return button;
+          } */
+
+			/* function showMessage() {
+        document.getElementById('body').classList.toggle('show');
+			} */
 
           }
         } 
@@ -82,7 +92,7 @@
         messageCount(); 
 
 
-        var newMessage = setInterval(getNewMessage, 3000);
+        window.setInterval(getNewMessage, 1000);
 
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
