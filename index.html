@@ -19,7 +19,7 @@
       		document.getElementById('main').appendChild(messageListElement);
 
       		var senderElement = document.createElement('div');
-      		senderElement.class = "sender";
+      		senderElement.className = "sender";
       		senderElement.innerHTML = sender;
       		messageListElement.appendChild(senderElement);
 
@@ -28,11 +28,11 @@
       		subjectElement.innerHTML = subject;
       		messageListElement.appendChild(subjectElement);
 
-      		var buttonElement = document.createElement('button');
+      		/*var buttonElement = document.createElement('button');
       		buttonElement.className = "buttonElement";
       		buttonElement.innerHTML = "Full Message";
           buttonElement.addEventListener("click", showMessage);
-      		subjectElement.appendChild(buttonElement);
+      		subjectElement.appendChild(buttonElement); */
 
       		var dateElement = document.createElement('div');
       		dateElement.className = "date";
@@ -46,44 +46,37 @@
 
       	//Show and hide the message body
 
-			var messageListElement = document.getElementsByClassName('messageList');
+		var messageListElement = document.getElementsByClassName('messageList');
 			for (var j = 0; j < messageListElement.length; j++) {
 				messageListElement[j].addEventListener('click', showMessage);
 			}
 
-			function showMessage() {
-        var bodyShow = document.querySelectorAll('.body');
-        
-        for (i = 0; i < bodyShow.length; i++) {
-				
-				bodyShow[i].classList.toggle('show');
-        }
-			}
+		function showMessage() {
+      var bodyShow = this.querySelectorAll('.body');
+      for (i = 0; i < bodyShow.length; i++) {
+			  bodyShow[i].classList.toggle('show');
+      }
+		} 
 
-			/*var buttonCode = document.getElementsByClassName('buttonElement');
+		/*var buttonCode = document.getElementsByClassName('buttonElement');
 			for (var k = 0; k < buttonCode.length; k++) {
 				buttonCode[k].addEventListener('click', showMessage);
-			} */
+			}
 
-      /* function createButton(code) {
-    var button = document.createElement("button");
-    button.innerHTML = "Full Message";
-    button.addEventListener("click", showMessage);
-    return button;
-          } */
+      function showMessage() {
+        var bodyElements = bodyElement.querySelectorAll('.body');
+        for (i = 0; i < bodyElements.length; i++) {
+        bodyElements[i].classList.toggle('show');
+        
+      }
+    } */
+  }
+}
 
-			/* function showMessage() {
-        document.getElementById('body').classList.toggle('show');
-			} */
-
-          }
-        } 
-
-        generateEmail(geemails);
+      generateEmail(geemails);
         
         
-        function messageCount() {
-
+      function messageCount() {
         var messagesTotalElement = document.createElement('p');
         messagesTotalElement.innerHTML = geemails.length + " Messages";
         document.getElementById('headline').appendChild(messagesTotalElement);
