@@ -1,5 +1,6 @@
 <html>
 	<head>
+    <title>Geemail</title>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
 
@@ -74,19 +75,28 @@
 }
 
       generateEmail(geemails);
-        
-        
+       
+
+     /* var interval;
+
+      function makeMoreMessages() {
+        interval = setInterval(getNewMessage, 3000);
+      };
+
+    
+      makeMoreMessages(); */
+
+
+      var interval = setInterval(getNewMessage, 1000);
+
+
       function messageCount() {
         var messagesTotalElement = document.createElement('p');
         messagesTotalElement.innerHTML = geemails.length + " Messages";
         document.getElementById('headline').appendChild(messagesTotalElement);
-    	}
+      }
         
-        messageCount(); 
-
-
-        window.setInterval(getNewMessage, 1000);
-
+      messageCount();
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
@@ -96,7 +106,7 @@
     </script>
 	</head>
 	<body>
-	<header>
+	<header id="header">
 		<h1>Geemail</h1>
 	</header>
 	<div class="container" id="headline">

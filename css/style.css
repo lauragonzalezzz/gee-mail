@@ -1,12 +1,14 @@
-.jumbotron {
-	margin: 0px auto;
-	padding: 70px 30px;
-	background: #7986cb;
-	color: red;
+
+.container {
+	font-family: arial;
+	margin: 10px;
 }
+
+
 .messageList {
     border: 1px solid black;
     margin: 2px;
+    padding: 10px;
 }
 
 .body {
@@ -15,6 +17,12 @@
 
 .body.show {
 	display: block;
-	background: red;
+	background: white;
+	margin: 5px;
+	border-left: 4px dotted #D4D4D0;
+	padding: 10px;
 }
 
+.messageList {
+	background: #E5E5E1;
+}
