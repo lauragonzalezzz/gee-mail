@@ -59,7 +59,10 @@
 
       generateEmail(geemails);
 
+      var newMessage = getNewMessage();
+      console.log(newMessage);
 
+       //window.geemails.push(getNewMessage)
 //Create new periodic messages
 
       /*var interval = setInterval(getNewMessage, 1000);
@@ -72,14 +75,12 @@
         }
       } */
 
-    /*function addNew(message) {
+    function addNew() {
       var interval = setInterval(getNewMessage, 1000);
-      for (var i = 0; i < 2; i++) {
-        generateEmail(geemails);
       }
-    }
 
-    addNew(messages); */
+    addNew(newMessage);
+
 
 //Add up the messages
 
@@ -90,7 +91,6 @@
       }
         
       messageCount();
-        
 
 
       };
