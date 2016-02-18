@@ -7,6 +7,8 @@
     <script>
       window.onload = function(){
          
+//Load the emails
+
       		function generateEmail(messages) {
       			for (var i = 0; i < messages.length; i++)  {
       				var sender = messages[i].sender;
@@ -29,12 +31,6 @@
       		subjectElement.innerHTML = subject;
       		messageListElement.appendChild(subjectElement);
 
-      		/*var buttonElement = document.createElement('button');
-      		buttonElement.className = "buttonElement";
-      		buttonElement.innerHTML = "Full Message";
-          buttonElement.addEventListener("click", showMessage);
-      		subjectElement.appendChild(buttonElement); */
-
       		var dateElement = document.createElement('div');
       		dateElement.className = "date";
       		dateElement.innerHTML = date;
@@ -45,7 +41,7 @@
       		bodyElement.innerHTML = body;
       		messageListElement.appendChild(bodyElement);
 
-      	//Show and hide the message body
+//Show and hide the message body
 
 		var messageListElement = document.getElementsByClassName('messageList');
 			for (var j = 0; j < messageListElement.length; j++) {
@@ -58,37 +54,34 @@
 			  bodyShow[i].classList.toggle('show');
       }
 		} 
-
-		/*var buttonCode = document.getElementsByClassName('buttonElement');
-			for (var k = 0; k < buttonCode.length; k++) {
-				buttonCode[k].addEventListener('click', showMessage);
-			}
-
-      function showMessage() {
-        var bodyElements = bodyElement.querySelectorAll('.body');
-        for (i = 0; i < bodyElements.length; i++) {
-        bodyElements[i].classList.toggle('show');
-        
-      }
-    } */
   }
 }
 
       generateEmail(geemails);
-       
-
-     /* var interval;
-
-      function makeMoreMessages() {
-        interval = setInterval(getNewMessage, 3000);
-      };
-
-    
-      makeMoreMessages(); */
 
 
+//Create new periodic messages
+
+      /*var interval = setInterval(getNewMessage, 1000);
+      var newMessages;
+
+      newMessages = [];
+      function addNewMessages(message) {
+        for (var i = 0; i < message.length; i++) {
+
+        }
+      } */
+
+    /*function addNew(message) {
       var interval = setInterval(getNewMessage, 1000);
+      for (var i = 0; i < 2; i++) {
+        generateEmail(geemails);
+      }
+    }
 
+    addNew(messages); */
+
+//Add up the messages
 
       function messageCount() {
         var messagesTotalElement = document.createElement('p');
@@ -97,8 +90,6 @@
       }
         
       messageCount();
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
 
 
