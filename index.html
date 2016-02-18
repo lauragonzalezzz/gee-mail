@@ -3,6 +3,7 @@
     <title>Geemail</title>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <script>
       window.onload = function(){
@@ -18,7 +19,7 @@
       			
 
       		var messageListElement = document.createElement('div');
-      		messageListElement.className = 'messageList';
+      		messageListElement.className = 'messageList col-xs-10 col-xs-push-2';
       		document.getElementById('main').appendChild(messageListElement);
 
       		var senderElement = document.createElement('div');
@@ -57,29 +58,20 @@
   }
 }
 
-      generateEmail(geemails);
+    generateEmail(geemails);
 
-      var newMessage = getNewMessage();
-      console.log(newMessage);
+      
+//Create additional messages
+    
+    var newMessage = getNewMessage();
+    
+    function addNewMessages() {
+      generateEmail(newMessage);
+      console.log("done");
+    }
 
-       //window.geemails.push(getNewMessage)
-//Create new periodic messages
+    setInterval(addNewMessages, 10000);
 
-      /*var interval = setInterval(getNewMessage, 1000);
-      var newMessages;
-
-      newMessages = [];
-      function addNewMessages(message) {
-        for (var i = 0; i < message.length; i++) {
-
-        }
-      } */
-
-    function addNew() {
-      var interval = setInterval(getNewMessage, 1000);
-      }
-
-    addNew(newMessage);
 
 
 //Add up the messages
@@ -97,12 +89,14 @@
     </script>
 	</head>
 	<body>
-	<header id="header">
-		<h1>Geemail</h1>
-	</header>
-	<div class="container" id="headline">
-	</div>
-	<div class="container" id="main">
-	</div>
+	   <header id="header">
+	 	   <h1>Geemail</h1>
+	   </header>
+	   <div class="container" id="headline">
+	   </div>
+	   <div class="container" id="main">
+	   </div>
+     <div class="sidebar">
+     </div>
 	</body>
 </html>
