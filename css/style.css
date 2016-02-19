@@ -1,14 +1,21 @@
 
+#body {
+	background: url('img/wood-background.jpg');
+
+}
+#header {
+	color: white;
+	margin: 10px;
+	border: 1px white;
+}
 .container {
 	font-family: arial;
 	margin: 10px;
 }
 
-
-.messageList {
-    border: 1px solid black;
-    margin: 2px;
-    padding: 10px;
+#headline {
+	color: white;
+	font-size: 160%;
 }
 
 .body {
@@ -18,22 +25,33 @@
 .body.show {
 	display: block;
 	background: white;
-	margin: 5px;
 	border-left: 4px dotted #D4D4D0;
 	padding: 10px;
+	color: black;
 }
 
 .messageList {
-	background: #E5E5E1;
+	background: #4A4845;
+	opacity: 0.9;
+	color: white;
+	padding: 10px;
+	border: 1px solid black;
 }
+
 .sender {
-	font-weight: bold;
-
+	font-size: 120%;
 }
-.subject {
-	font-weight: bold;
 
-}
 .date {
-
+	float: right;
+	font-size: 80%;
+	font-weight: normal;
+}
+.list-group {
+	margin-top: 60px;
+}
+.list-group-item {
+	align: center;
+	opacity: .9;
+	font-weight: bold;
 }

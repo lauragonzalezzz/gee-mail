@@ -19,8 +19,17 @@
       			
 
       		var messageListElement = document.createElement('div');
-      		messageListElement.className = 'messageList col-xs-10 col-xs-push-2';
+      		messageListElement.className = 'messageList';
       		document.getElementById('main').appendChild(messageListElement);
+
+      //Add hover effects
+
+          messageListElement.addEventListener('mouseover', function() {
+            this.style.opacity = 10;
+          });
+          messageListElement.addEventListener('mouseout', function() {
+            this.style.opacity = 0.9;
+          });
 
       		var senderElement = document.createElement('div');
       		senderElement.className = "sender";
@@ -35,7 +44,7 @@
       		var dateElement = document.createElement('div');
       		dateElement.className = "date";
       		dateElement.innerHTML = date;
-      		messageListElement.appendChild(dateElement);
+      		senderElement.appendChild(dateElement);
 
       		var bodyElement = document.createElement('div');
       		bodyElement.className = "body";
@@ -53,6 +62,8 @@
       var bodyShow = this.querySelectorAll('.body');
       for (i = 0; i < bodyShow.length; i++) {
 			  bodyShow[i].classList.toggle('show');
+
+
       }
 		} 
   }
@@ -66,11 +77,12 @@
     var newMessage = getNewMessage();
     
     function addNewMessages() {
-      generateEmail(newMessage);
-      console.log("done");
+      generateEmail([newMessage]);
+      console.log(this);
+
     }
 
-    setInterval(addNewMessages, 10000);
+    setInterval(addNewMessages, 5000);
 
 
 
@@ -80,23 +92,33 @@
         var messagesTotalElement = document.createElement('p');
         messagesTotalElement.innerHTML = geemails.length + " Messages";
         document.getElementById('headline').appendChild(messagesTotalElement);
+
+
       }
         
       messageCount();
+   
 
 
       };
     </script>
 	</head>
-	<body>
+	<body id="body">
 	   <header id="header">
-	 	   <h1>Geemail</h1>
+      <h1>Geemail</h1>
 	   </header>
-	   <div class="container" id="headline">
-	   </div>
-	   <div class="container" id="main">
-	   </div>
-     <div class="sidebar">
+    <div class="container col-xs-2" id="sidebar-wrapper">
+      <ul class="list-group">
+        <li class="list-group-item"><button type="button" class="btn btn-default btn-large">Compose</button></li>
+        <li class="list-group-item">Inbox</li>
+        <li class="list-group-item">Sent Mail</li>
+        <li class="list-group-item">Spam</li>
+        <li class="list-group-item">Trash</li>
+      </ul>
      </div>
+	   <div class="container col-xs-10" id="headline">
+	   </div>
+	   <div class="container col-xs-10" id="main">
+	 </div>
 	</body>
 </html>
