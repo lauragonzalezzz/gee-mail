@@ -73,32 +73,22 @@
 
       
 //Create additional messages
-    
-    var newMessage = getNewMessage();
-    
-    function addNewMessages() {
-      generateEmail([newMessage]);
-      console.log(this);
-
-    }
-
-    setInterval(addNewMessages, 5000);
-
-
-
-//Add up the messages
-
-      function messageCount() {
-        var messagesTotalElement = document.createElement('p');
-        messagesTotalElement.innerHTML = geemails.length + " Messages";
-        document.getElementById('headline').appendChild(messagesTotalElement);
-
-
-      }
-        
-      messageCount();
    
 
+      var total = document.getElementById('headline');
+      var totalMessages = geemails.length;
+      var totalCount = document.createTextNode(totalMessages);
+      headline.appendChild(totalCount);
+
+//Set interval for new messages
+
+      setInterval (function () {
+       var newMessage = getNewMessage();
+        generateEmail([newMessage]);
+
+        totalMessages += 1;
+        total.innerHTML = totalMessages + " Messages";
+      }, 3000);
 
       };
     </script>
