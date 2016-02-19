@@ -79,6 +79,7 @@
       var totalMessages = geemails.length;
       var totalCount = document.createTextNode(totalMessages);
       headline.appendChild(totalCount);
+      headline.innerHTML = totalMessages + " Messages";
 
 //Set interval for new messages
 
@@ -88,6 +89,8 @@
 
         totalMessages += 1;
         total.innerHTML = totalMessages + " Messages";
+        var badge = document.getElementById('inboxCount');
+        badge.innerHTML = totalMessages;
       }, 3000);
 
       };
@@ -100,13 +103,14 @@
     <div class="container col-xs-2" id="sidebar-wrapper">
       <ul class="list-group">
         <li class="list-group-item"><button type="button" class="btn btn-default btn-large">Compose</button></li>
-        <li class="list-group-item">Inbox</li>
+        <li class="list-group-item">Inbox<span class="badge" id="inboxCount">10</span></li>
         <li class="list-group-item">Sent Mail</li>
-        <li class="list-group-item">Spam</li>
-        <li class="list-group-item">Trash</li>
+        <li class="list-group-item">Spam<span class="badge">899</span></li>
+        <li class="list-group-item">Trash<span class="badge">4</span></li>
       </ul>
      </div>
 	   <div class="container col-xs-10" id="headline">
+     Messages
 	   </div>
 	   <div class="container col-xs-10" id="main">
 	 </div>
