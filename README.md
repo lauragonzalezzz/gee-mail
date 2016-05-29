@@ -1,4 +1,4 @@
-# GeeMail 
+# DevLeague GeeMail Coding Challenge 
 
 GeeMail is a coding exercise meant to simulate an e-mail web application inbox.
 
